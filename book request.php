@@ -309,7 +309,7 @@ include("connection.php");
                                     <!-- Page-body start -->
                                     <div class="page-body">
                                         <div class="row">
-                                            <form method="POST" action="book request return.php" >
+                                            <form method="post"  >
                                                 <table>
                                                     <tr>
                                                 
@@ -321,11 +321,23 @@ include("connection.php");
                                                 <td><input type="text" class=".form-control" name="author" placeholder="enter the author"><br></td>                                                
                                                 </tr>
                                                 </table>
-                                                <input type="submit">
+                                                <input type="submit" name="submit">
                                             </form>
                                             
 
-
+                                            <?php
+                                            if(isset($_POST["submit"]))
+                                            {
+                                        $bookname=$_POST["bookname"];
+                                        $author=$_POST["author"];
+                                        
+                                        $sq="insert into book_request values(200,'$bookname','$author')";
+                                        if(mysqli_query($conn,$sq))
+                                            {
+                                                echo  '<script>alert("one record created");</script>';
+                                            }
+                                        }
+                                    ?>
 
 
                                         
