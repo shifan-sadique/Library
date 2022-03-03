@@ -331,12 +331,17 @@ include("connection.php");
                                         $bookname=$_POST["bookname"];
                                         $author=$_POST["author"];
                                         
-                                        $sq="insert into book_request values(200,'$bookname','$author')";
+                                        $sq="insert into book_request values('','$bookname','$author')";
                                         if(mysqli_query($conn,$sq))
                                             {
                                                 echo  '<script>alert("one record created");</script>';
                                             }
+                                        else
+                                        {
+                                            echo mysqli_error($conn);
                                         }
+                                        }
+
                                     ?>
 
 

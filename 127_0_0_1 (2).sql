@@ -30,9 +30,9 @@ USE `library`;
 --
 
 CREATE TABLE `book_request` (
-  `Request ID` int(10) NOT NULL,
-  `Book name` int(50) NOT NULL,
-  `author name` int(50) NOT NULL
+  `Request ID` in(10) NOT NULL,
+  `Book name` varchar(50) NOT NULL,
+  `author name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
