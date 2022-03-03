@@ -317,10 +317,9 @@
                                     <!-- Page-body start -->
                                     <div class="page-body">
                                         <div class="row">
-                                            
-
-
-
+                                        <br><button class=".btn-square" value="search" onclick="search.php" >Search<br>
+                                        <br><button type="button" class=".btn-square" onclick="book request"><br>
+                                        <br><input type="button" class=".btn-square" value="booktaken"><br>
 
                                         
 
