@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+    include("connection.php");
+?>
 <head>
     <title>Lms cet </title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
@@ -95,7 +97,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12">
-                    <form class="md-float-material form-material">
+                    <form class="md-float-material form-material" method="post">
                      
                         <div class="auth-box card">
                             <div class="card-block">
@@ -105,17 +107,17 @@
                                     </div>
                                 </div>
                                 <div class="form-group form-primary">
-                                    <input type="text" name="user-name" class="form-control" required="">
+                                    <input type="text" name="name" class="form-control" required="">
                                     <span class="form-bar"></span>
                                     <label class="float-label">Name</label>
                                 </div>
                                 <div class="form-group form-primary">
-                                    <input type="text" name="user-name" class="form-control" required="">
+                                    <input type="text" name="username" class="form-control" required="">
                                     <span class="form-bar"></span>
                                     <label class="float-label">Username</label>
                                 </div>
                                 <div class="form-group form-primary">
-                                    <input type="text" name="user-name" class="form-control" required="">
+                                    <input type="text" name="dept" class="form-control" required="">
                                     <span class="form-bar"></span>
                                     <label class="float-label">Department</label>
                                 </div>
@@ -134,7 +136,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group form-primary">
-                                            <input type="password" name="confirm-password" class="form-control" required="">
+                                            <input type="password" name="confirm" class="form-control" required="">
                                             <span class="form-bar"></span>
                                             <label class="float-label">Confirm Password</label>
                                         </div>
@@ -143,7 +145,7 @@
 
                                 <div class="row m-t-30">
                                     <div class="col-md-12">
-                                        <button type="button" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Sign up now</button>
+                                        <input type="submit" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20" value="sign up" name="submit">
                                     </div>
                                 </div>
                                 <hr/>
@@ -152,6 +154,31 @@
                         </div>
                     </form>
                 </div>
+
+                <?php
+                    if(isset($_POST["submit"]))
+                    {
+                        $name=$_POST["name"];
+                        $username=$_POST["username"];
+                        $dept=$_POST["dept"];
+                        $email=$_POST["email"];
+                        $password=$_POST["password"];
+                        $confirm=$_POST["confirm"];
+
+                        $sql1="insert into teacher_register values('$name','$username','$email','$dept','')";
+                        $sql2="insert into teacher_table values('$username','$password','$confirm')";
+
+                        if(mysqli_query($conn,$sql1) and mysqli_query($conn,$sql2))
+                        {
+                            echo '<script>alert("one teacher added")</script>';
+                        }
+
+                        else{
+                            echo '<script>alert("errror")</script>';
+                        }
+                    }
+
+                ?> 
                 <!-- end of col-sm-12 -->
             </div>
             <!-- end of row -->

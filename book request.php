@@ -311,8 +311,7 @@ include("connection.php");
                                         <div class="row">
                                             <form method="post"  >
                                                 <table>
-                                                    <tr>
-                                                
+                                                <tr>
                                                 <td><label for="bookname">Book name</label></td>
                                                 <td><input type="text" class=".form-control" name="bookname" placeholder="enter the book name"><br></td>
                                                 </tr>
